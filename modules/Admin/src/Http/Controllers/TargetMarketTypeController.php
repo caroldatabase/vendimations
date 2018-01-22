@@ -120,7 +120,6 @@ class TargetMarketTypeController extends Controller {
 
     public function store(TargetMarketRequest $request, TargetMarketType $targetMarket) 
     {   
-
         $targetMarket->fill(Input::all()); 
         $targetMarket->save();   
          

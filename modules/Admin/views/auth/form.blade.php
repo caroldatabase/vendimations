@@ -1,16 +1,14 @@
 <h3 class="form-title">Sign in</h3>
-     @if (count($errors) > 0)
+    @if ($errors->any())
     <div class="alert alert-danger">
-        <button class="close" data-close="alert"></button>
-        <span> 
-            
+        <ul>
             @foreach ($errors->all() as $error)
-            {{ $error }}
+                <li>{{ $error }}</li>
             @endforeach
-                
-        </span>
+        </ul>
     </div>
-     @endif
+   @endif
+
     <div class="form-group{{ $errors->first('email', ' has-error') }}">
         <label class="control-label visible-ie8 visible-ie9"> email <span class="error">*</span></label>
         <div class="input-icon">

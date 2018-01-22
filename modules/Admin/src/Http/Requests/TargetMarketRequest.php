@@ -5,7 +5,9 @@ namespace Modules\Admin\Http\Requests;
 use App\Http\Requests\Request;
 use Input;
 
-class TargetMarketRequest  extends Request {
+use Illuminate\Foundation\Http\FormRequest;
+
+class TargetMarketRequest  extends FormRequest {
 
     /**
      * The metric validation rules.

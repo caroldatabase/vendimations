@@ -1,5 +1,6 @@
 
 @if ($errors->any())
+
     <div class="alert alert-danger">
         <ul>
             @foreach ($errors->all() as $error)
@@ -7,7 +8,7 @@
             @endforeach
         </ul>
     </div>
-@endif 
+@endif
 
 <div class="form-body">
     <div class="alert alert-danger display-hide">
@@ -20,7 +21,7 @@
             <label class="control-label col-md-3">Target Market <span class="required"> * </span></label>
             <div class="col-md-4"> 
                 {!! Form::text('title',null, ['class' => 'form-control','data-required'=>1])  !!} 
-                <span class="help-block">{{ $errors->first('title', ':message') }}</span>
+                <span class="help-block">{{ $errors->first('title','message') }}</span>
             </div>
         </div> 
 

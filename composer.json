@@ -9,7 +9,7 @@
         "atayahmet/laravel-nestable": "^0.8.6",
         "barryvdh/laravel-dompdf": "^0.8.0",
         "google/apiclient": "^2.2",
-        "laravel/framework": "5.4.*",
+        "laravel/framework": "5.5.*",
         "laravel/socialite": "^3.0",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.4",

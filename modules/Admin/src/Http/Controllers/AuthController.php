@@ -19,6 +19,7 @@ use Closure;
 use Hash;
 use URL;
 use Validator;
+use Session;
 use App\Http\Requests;
 use App\Helpers\Helper as Helper;
 use Modules\Admin\Models\User;
