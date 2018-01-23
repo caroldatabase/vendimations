@@ -30,12 +30,11 @@ class AuthController extends Controller
 {
      
     protected $redirectTo = 'admin';
-	protected $guard = 'admin';
+	protected $guard = 'web';
 	 
 	public function index(User $user, Request $request)
 	{  
-		
-        if(Auth::guard('admin')->check()){  
+		if(Auth::guard($this->guard)->check()){  
     		return Redirect::to('admin');
     	}
         return view('packages::auth.login', compact('user'));

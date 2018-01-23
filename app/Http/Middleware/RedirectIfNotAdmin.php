@@ -21,15 +21,11 @@ class RedirectIfNotAdmin
     protected $redirectTo = 'admin';
     protected $guard = 'admin';
 
-    public function handle($request, Closure $next, $guard = 'admin')
+    public function handle($request, Closure $next, $guard = 'web')
     {   
-
-      // dd(Auth::guard('admin')->attempt($credentials,true));
-        if (!Auth::guard($guard)->check()) {
-
+        if (!Auth::guard($guard)->check() && !Auth::guard('admin')->check() ) {
             return redirect('admin/login');
         }
-        
         return $next($request);
     }
 }

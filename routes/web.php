@@ -11,19 +11,33 @@
 |
 */
 
-Route::get('/', function () {
-	echo phpinfo(); 
-    return view('welcome');
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST, DELETE, OPTIONS');
+header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorization, X-Request-With, auth-token');
+header('Access-Control-Allow-Credentials: true');
+
+
+/*
+|--------------------------------------------------------------------------
+| Application Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register all of the routes for an application.
+| It's a breeze. Simply tell Laravel the URIs it should respond to
+| and give it the controller to call when that URI is requested.
+|
+*/
+
+Route::view('/','welcome');
+ 
+/*
+|--------------------------------------------------------------------------
+| Auth Routes for social login
+|--------------------------------------------------------------------------
+*/
+Route::any('auth/{provider}', 'AuthController@redirectToProvider');
+Route::any('{provider}/callback', 'AuthController@handleProviderCallback');
+Route::any('google', 'AuthController@handleProviderCallback');
+Route::get('account/login', function(){
+	return \Redirect::to('admin');
 });
-
-Route::get('google', function () {
-    return view('googleAuth');
-});
-
-Route::get('auth/google', 'Auth\AuthController@redirectToGoogle');
-
-Route::get('auth/google/callback', 'Auth\AuthController@handleGoogleCallback');
-
-
-Route::get('glogin','UserController@googleLogin')->name('glogin') ;
-Route::get('google-user','UserController@listGoogleUs');

@@ -49,6 +49,7 @@ class AdminController extends Controller {
     public function __construct()
     {  
         $this->middleware('admin');  
+        
         View::share('heading','dashboard');
         View::share('route_url','admin');
     }
